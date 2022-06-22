@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1 class="ps-3 mt-3">List of quizzs</h1>
+
+    <% @quizzs.each do |quizz| %>
+      <div class="card p-3 m-3">
+        <h3><%= link_to quizz.title, quizz_path(quizz) %></h3>
+        <p><%= quizz.description %></p>
+      </div>
+    <% end %>
+</div>

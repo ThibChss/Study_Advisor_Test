@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="ps-3 mt-3"><%= @quizz.title %></h1>
+
+  <%= simple_form_for(@quizz) do |f| %>
+    <% @questions.each do |question| %>
+      <div class="card p-3 m-3">
+        <h4><%= question.title %></h4>
+        <%= f.association :answers, as: :check_boxes, collection: Answer.where(question_id: question.id),
+                          checked: false, label: 'Choices' %>
+      </div>
+    <% end %>
+    <%= f.submit 'Done', class: 'm-3 btn btn-success' %>
+  <% end %>
+</div>

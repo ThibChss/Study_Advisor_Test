@@ -6,20 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 p 'DESTROYING DB'
-Quizz.destroy_all
-Question.destroy_all
 Answer.destroy_all
-User.destroy_all
+Question.destroy_all
 Result.destroy_all
+Quizz.destroy_all
+User.destroy_all
 
 puts 'Creating user'
 user = User.create(email: 'thib@gmail.com', password: 'azerty')
 
-puts 'Creating a result'
-result = Result.create(user: user)
 
 puts 'First Quizz in creation'
-quizz = Quizz.create!({ title: 'Ruby Programming', description: 'The best programming quizz to discover Ruby smoothly.', difficulty: 'medium', result: result })
+quizz = Quizz.create!({ title: 'Ruby Programming', description: 'The best programming quizz to discover Ruby smoothly.', difficulty: 'medium' })
 # quizz_1.save!
 puts 'First Question in creation'
 question_1 = Question.create!(title: 'What is a class?', quizz_id: quizz.id)
@@ -33,6 +31,9 @@ puts '3 answer'
 answer_1_3 = Answer.create!(title: 'A glass with a c', status: false, question_id: question_1.id)
 puts '4 answer'
 answer_1_4 = Answer.create!(title: 'Like a module', status: false, question_id: question_1.id)
+
+puts 'Creating a result'
+result = Result.create(user: user, quizz: quizz)
 
 puts 'Second Question in creation'
 question_2 = Question.create!(title: 'What is a module?', quizz_id: quizz.id)
@@ -63,7 +64,7 @@ puts '1 QUIZZ is GENERATED'
 puts '--------------------------------'
 
 puts 'Second Quizz in creation'
-quizz_2 = Quizz.create!({ title: 'Javascript Quizz', description: 'The best quizz about Javascript and the world of internet.', difficulty: 'easy', result: result })
+quizz_2 = Quizz.create!({ title: 'Javascript Quizz', description: 'The best quizz about Javascript and the world of internet.', difficulty: 'easy' })
 # quizz_1.save!
 puts 'First Question in creation'
 question_1_2 = Question.create!(title: 'What is a constructor?', quizz_id: quizz_2.id)
@@ -107,7 +108,7 @@ puts '2 QUIZZ is GENERATED'
 puts '--------------------------------'
 
 puts 'Third Quizz in creation'
-quizz_3 = Quizz.create!({ title: 'React Quizz', description: 'The best quizz on React, this trendy Javascript diamond.', difficulty: 'hard', result: result })
+quizz_3 = Quizz.create!({ title: 'React Quizz', description: 'The best quizz on React, this trendy Javascript diamond.', difficulty: 'hard' })
 puts 'First Question in creation'
 question_1_3 = Question.create!(title: 'What is a React?', quizz_id: quizz_3.id)
 puts 'First Question in creation'
@@ -149,7 +150,7 @@ puts '3 QUIZZ is GENERATED'
 puts '--------------------------------'
 
 puts 'Fourth Quizz in creation'
-quizz_4 = Quizz.create!({ title: 'Rails Quizz', description: 'An exclusive quizz for junior software developers looking to learn Rails.', difficulty: 'medium', result: result })
+quizz_4 = Quizz.create!({ title: 'Rails Quizz', description: 'An exclusive quizz for junior software developers looking to learn Rails.', difficulty: 'medium' })
 puts 'First Question in creation'
 question_1_4 = Question.create!(title: 'What is a helper?', quizz_id: quizz_4.id)
 puts 'First Question in creation'

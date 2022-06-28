@@ -7,6 +7,7 @@ class QuizzsController < ApplicationController
     quizz_score = CalculateScoreService.new(params[:quizz], @quizz).call
     total_score = @quizz.score << quizz_score
     @quizz.update(score: total_score)
+    @result = Result.create(user: current_user, quizz: @quizz, score: quizz_score)
     redirect_to root_path, notice: "Your score is #{quizz_score} on 3"
   end
 
@@ -19,8 +20,6 @@ class QuizzsController < ApplicationController
   def set_questions
     @questions = @quizz.questions
   end
-
-  def set_user_answer
-    @user_answer = params[:quizz][:answer_ids].reject(&:empty?).map(&:to_i)
-  end
 end
+
+# Result.where(user: user, quizz: quizz).pluck(:score)

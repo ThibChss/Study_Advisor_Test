@@ -1,14 +1,18 @@
-<div class="container">
-  <h1 class="ps-3 mt-3"><%= @quizz.title %></h1>
+<div class="container text-center">
+  <h1 class="ps-3 my-5"><%= @quizz.title %></h1>
 
-  <%= simple_form_for(@quizz) do |f| %>
-    <% @questions.each do |question| %>
-      <div class="card p-3 m-3">
-        <h4><%= question.title %></h4>
-        <%= f.association :answers, as: :check_boxes, collection: Answer.where(question_id: question.id),
-                          checked: false, label: 'Choices' %>
-      </div>
-    <% end %>
-    <%= f.submit 'Done', class: 'm-3 btn btn-success' %>
-  <% end %>
+  <div class="form-container">
+    <div class="p-3 m-3 text-center w-75">
+      <%= simple_form_for(@quizz) do |f| %>
+        <% @questions.each do |question| %>
+          <div class="card p-3 mb-4 card-question">
+            <h4><%= question.title %></h4>
+            <%= f.association :answers, as: :check_boxes, collection: Answer.where(question_id: question.id),
+                              checked: false, label: "", input_html: { class: "toggle d-none my-3" } %>
+          </div>
+        <% end %>
+        <%= f.submit 'Done', class: 'm-3 btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,45 @@
+.toggle + label {
+  position: relative;
+  cursor: pointer;
+  outline-offset: 10px;
+  align-items: center;
+  display: flex;
+  padding: 15px;
+  border: 0.5px solid grey;
+  border-radius: 50px;
+  margin: 3px 18px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  color: $green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.toggle:checked + label {
+  border: 3px solid $green;
+  outline-offset: 10px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.passed {
+  border: 1px solid var(--passed);
+  width: 70px;
+  text-align: center;
+  background: var(--background);
+  border-radius: 5px;
+  color: var(--passed);
+  font-size: 12px;
+}
+
+.score-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

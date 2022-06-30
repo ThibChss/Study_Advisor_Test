@@ -1,0 +1,20 @@
+.cards-home {
+  width: 350px;
+  height: 220px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-question {
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-score {
+  width: 350px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}

@@ -1,5 +1,29 @@
 ## Setup
- TO BE COMPLETED
+For it's first launch run the following command :
+
+```
+bundle install
+```
+```
+yarn install
+```
+
+Create the db
+
+```
+rails db:create
+```
+
+Then run the migrations
+
+```
+rails db:migrate
+```
+Now run the seeds so you can answer quizzes
+
+```
+rails db:seed
+```
 
 ## Guidelines
 - Fork this repository
@@ -14,7 +38,7 @@
   - You are asked to build a simple Quizz App
 
 ## User
- [ ] A user can log in with a valid username and password through a login screen
+ [x] A user can log in with a valid username and password through a login screen
 
  [x] A user can see a collection of quizzes
 
@@ -22,7 +46,7 @@
 
  [x] A user can answer 3 questions on a quizz
 
- [ ] A user can see the scores of his quizzes
+ [x] A user can see the scores of his quizzes
 
 
 ## Quizz
@@ -30,7 +54,7 @@
 
  [x] A quizz has a maximum of 3 questions
 
- [ ] A quizz is considered passed if +60% of questions are answered correctly
+ [x] A quizz is considered passed if +60% of questions are answered correctly
 
 ## Question
  [x] A question has a maximum of 4 answers
@@ -41,7 +65,7 @@
 ## Bonus
 - Some nice to haves, when there is time to spare.
 
- [ ] A quizz can have a dificulty level
+ [x] A quizz can have a dificulty level
 
  [ ] Add admin role
 

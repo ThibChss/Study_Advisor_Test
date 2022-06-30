@@ -8,7 +8,11 @@ class QuizzsController < ApplicationController
     total_score = @quizz.score << quizz_score
     @quizz.update(score: total_score)
     @result = Result.create(user: current_user, quizz: @quizz, score: quizz_score)
-    redirect_to root_path, notice: "Your score is #{quizz_score} on 3"
+    if quizz_score >= 2
+      redirect_to root_path, notice: "Your passed #{quizz_score} on 3"
+    else
+      redirect_to root_path, notice: "You failed the quizz"
+    end
   end
 
   private
@@ -21,5 +25,3 @@ class QuizzsController < ApplicationController
     @questions = @quizz.questions
   end
 end
-
-# Result.where(user: user, quizz: quizz).pluck(:score)

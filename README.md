@@ -1,5 +1,5 @@
 ## Setup
-For it's first launch run the following command :
+For the first launch please run the following command :
 
 ```
 bundle install
@@ -8,22 +8,32 @@ bundle install
 yarn install
 ```
 
-Create the db
+Create the DB
 
 ```
 rails db:create
 ```
 
-Then run the migrations
+Run the migrations
 
 ```
 rails db:migrate
 ```
-Now run the seeds so you can answer quizzes
+Run the seed
 
 ```
 rails db:seed
 ```
+You can use this user to connect
+
+```
+email: thibault@gmail.com ; password: azerty
+```
+
+## DB
+- Here is the DB I went with for this project
+
+![](quizz_db.png)
 
 ## Guidelines
 - Fork this repository

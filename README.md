@@ -33,7 +33,7 @@ email: thibault@gmail.com ; password: azerty
 ## DB
 - Here is the DB I went with for this project
 
-![](quizz_db.png)
+![](app/assets/images/quizz_db.png)
 
 ## Guidelines
 - Fork this repository

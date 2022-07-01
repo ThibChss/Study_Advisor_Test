@@ -67,7 +67,7 @@ rails db:seed
 
  [x] A quizz can have a dificulty level
 
- [ ] Add admin role
+ [x] Add admin role
 
  [ ] A user with admin role can create and edit quizzes
 

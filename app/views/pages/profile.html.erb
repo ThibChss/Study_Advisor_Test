@@ -1,19 +1,28 @@
 <div class="container text-center">
+
+    <div class="d-flex justify-content-end">
+      <% if current_user.admin? %>
+        <%= link_to 'Add Quizz', new_quizz_path, class: 'btn btn-success mt-3' %>
+      <% end %>
+    </div>
+
     <h1 class="ps-3 my-5">My Results</h1>
 
     <div class="score-container">
       <% @quizzs.each do |quizz| %>
-        <div class="card p-3 m-3 card-score">
-          <h3 class="py-2"><%= quizz.title %></h3>
-          <% results = Result.where(user: current_user, quizz: quizz).pluck(:score) %>
-          <% if results.empty? %>
-              <p>You don't have any score yet</p>
-          <% else %>
-            <% results.each do |score| %>
-              <p>Your score was <strong><%= score %></strong> <span class="passed px-2" style="--passed: <%= passed(score) %>; --background: <%= background_passed(score) %>"><%= score >= 2 ? "Passed" : "Failed" %></span></p>
+        <% unless quizz.questions.empty? %>
+          <div class="card p-3 m-3 card-score">
+            <h3 class="py-2"><%= quizz.title %></h3>
+            <% results = Result.where(user: current_user, quizz: quizz).pluck(:score) %>
+            <% if results.empty? %>
+                <p>You don't have any score yet</p>
+            <% else %>
+              <% results.each do |score| %>
+                <p>Your score was <strong><%= score %></strong> <span class="passed px-2" style="--passed: <%= passed(score) %>; --background: <%= background_passed(score) %>"><%= score >= 2 ? "Passed" : "Failed" %></span></p>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
 </div>

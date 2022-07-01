@@ -2,12 +2,14 @@
   <h1 class="ps-3 my-5 text-center">Quizz Yourself</h1>
     <div class="container-cards-home">
       <% @quizzs.each do |quizz| %>
-        <%= link_to quizz_path(quizz), class: 'quizzs-home' do  %>
-          <div class="card p-3 m-3 cards-home align-items-center">
-            <h3 class="text-center"><%= quizz.title %></h3>
-            <p class="text-center"><%= quizz.description %></p>
-            <p class="difficulty" style="--color: <%= color(quizz.difficulty) %>; --background: <%= background_color(quizz.difficulty) %>"><%= quizz.difficulty.capitalize %></p>
-          </div>
+        <% unless quizz.questions.empty? %>
+          <%= link_to quizz_path(quizz), class: 'quizzs-home' do  %>
+            <div class="card p-3 m-3 cards-home align-items-center">
+              <h3 class="text-center"><%= quizz.title %></h3>
+              <p class="text-center"><%= quizz.description %></p>
+              <p class="difficulty" style="--color: <%= color(quizz.difficulty) %>; --background: <%= background_color(quizz.difficulty) %>"><%= quizz.difficulty.capitalize %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>

@@ -4,5 +4,6 @@ class Quizz < ApplicationRecord
   has_many :answers, through: :questions
   has_many :results
   validates_length_of :questions, maximum: 3
-  validates :difficulty, acceptance: { accept: DIFFICULTY }
+  validates :title, :description, presence: true
+  validates :difficulty, acceptance: { accept: DIFFICULTY }, presence: true
 end

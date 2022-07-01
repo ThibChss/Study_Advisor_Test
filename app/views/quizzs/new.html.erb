@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Add Quizz Here</h1>
+
+  <%= simple_form_for(@quizz) do |f| %>
+    <%= f.input :title, placeholder: 'Python Quizz' %>
+    <%= f.input :description, placeholder: "The best quizz to test your python's knowledge" %>
+    <%= f.select :difficulty, Quizz::DIFFICULTY %>
+    <%= f.submit 'All Done', class: 'btn btn-success' %>
+  <% end %>
+
+</div>

@@ -22,3 +22,12 @@
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
 }
+
+.links {
+  color: #73A9AD;
+  opacity: 0.7;
+  &:hover {
+    color: #73A9AD;
+    opacity: 1;
+  }
+}
